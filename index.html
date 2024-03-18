@@ -1,171 +1,144 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
     <title>mAa4a</title>
     <link rel="icon" type="image/x-icon" href="./assets/header/logo.png">
-    <!-- meta -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Stylesheets-->
-    <link rel="stylesheet" type="text/css" href="./resources/css/fullpage.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="./resources/css/style.css" />
-    <!-- JavaScripts -->
-    <script type="text/javascript" src="./resources/js/scrolloverflow.min.js"></script>
-    <script type="text/javascript" src="./resources/js/fullpage.js"></script>
 </head>
+
 <body>
+    <div class="parallax-container">
+        <div class="background-image">
+            <div class="username">mAa4a</div>
+        </div>
+        <img class="overlay-image" src="assets/pics/opener/opener_overlay.png" alt="Overlay Image">
+        <!--<div class="overlay-image">test</div>-->
+    </div>
 
-<div id="fullpage">
-    <ul id="myMenu">
-        <li data-menuanchor="Landing_page" class="active"><a href="#start">Landing page</a></li>
-        <li data-menuanchor="About_Me"><a href="#about_me">About Me</a></li>
-        <li data-menuanchor="Hobies_and_other"><a href="#hobies_and_other">About Me</a></li>
-        <li data-menuanchor="My_Experience"><a href="#job_experience">My Experience</a></li>
-        <li data-menuanchor="Socials"><a href="#socials">Socials</a></li>
-        <li data-menuanchor="Contacts"><a href="#contacts">Contacts</a></li>
-    </ul>
-	<div class="section active" id="section0">
-        <div class="typewriter">
-            <h1>Hey! I'm mAa4a!</h1>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#Portfolio" class="button">Portfolio</a>
+        <div class="logo"></div>
+        <a href="#Socials" class="button">Socials</a>
+    </div>
+
+    <!-- Text Section -->
+    <div class="text-section" id="about-me">
+        <div class="left-section">
+            <img src="assets/pics/about_me/me.jpg" alt="Profile Image" class="profile-image">
+        </div>
+        <div class="right-section">
+            <h1>About Me</h1>
+            <h3>My name is Madars Vagalis. I go by username <i>mAa4a</i>. Currently, I'm 20 years old and originally am from Bēne (Latvia), but for now I live in Liepāja.<br>
+                I would describe myself as a creative and goal-oriented person who likes to improve himself in a wide variety of industries.<br>
+                I am happy for every opportunity to learn something new.<br>
+                This website was created with the intention to introduce myself a little, but also to show my work experience.<br>
+                Also, this website is made ground up, written in HTML, JavaScript and CSS and using only free available tools for hosting.
+            </h3>
         </div>
     </div>
-	<div class="section" id="section1">
-        <h1>About Me</h1>
-        <p>My name is Madars Vagalis. Currently, I'm 20 years old and originally I'm from Bēne (Latvia).<br>
-            I would describe myself as a creative and goal-oriented person who likes to improve himself in a wide variety of industries.<br>
-            I am happy for every opportunity to learn something new.<br>
-            This website was created with the intention to introduce myself a little, but also to show my work experience.</p>
+
+    <div class="parallax-container">
+        <div class="background-image" style="background-image: url('assets/parallax/Piipa_1.JPG');">
+            <div class="color-filter"></div>
+        </div>
+        <!-- Content for the first parallax section if needed -->
     </div>
-    <div class="section" id="section2">
-        <div class="slide">
-            <h1>I love photography and filmmaking,</h1>
-            <p>even tho my skills aren't the best.</p>
-        </div>
-        <div class="slide">
-            <h1>Videogames are life,</h1>
-            <p>whenever I can find any free time.</p>
-        </div>
-        <div class="slide">
-            <h1>Music taste ahhhh,</h1>
-            <p>but some say, they ears are bleeding.</p>
-        </div>
-        <div class="slide">
-            <h1>Cat and dog person,</h1>
-            <p>say whatever you want, both are cute.</p>
-        </div>
-        <div class="slide">
-            <h1>That "IT guy",</h1>
-            <p>says that "knows everything",<br>
-            but in reality, strugles too much.</p>
+
+    <!-- Event Timeline Section -->
+    <div class="event-timeline-section" id="Portfolio">
+        <h1>Notable life events</h1>
+        <p>(Hower over the dots, and press on them to see more information)</p>
+        <div class="event-timeline" id="eventTimeline"></div>
+    </div>
+
+    <div class="gallery-view">
+        <div id="Photos"><h1>Some of my work</h1></div>
+        <div class="gallery">
+            <!--<a href="https://youtube.com/@mAa4a/" target="_blank">-->
+            <a href="portfolio/Izgaismo_Liepaju" target="_self">
+                <div class="image">"
+                    <img class="image__img" src="portfolio/Izgaismo_Liepaju.JPEG" alt="" />
+                    <div class="image__overlay image__overlay--blur">Izgaismo Liepāju</div>
+                </div>
+            </a>
+            <a href="portfolio/Mad_Liepaja-2023" target="_self">
+                <div class="image">
+                    <img class="image__img" src="portfolio/Mad_Liepaja.JPG" alt="" />
+                    <div class="image__overlay image__overlay--blur">Mad Liepāja 2023</div>
+                </div>
+            </a>
+            <a href="portfolio/Trends_and_transformation" target="_self">
+                <div class="image">
+                    <img class="image__img" src="portfolio/Trends_and_transformation.jpg" alt="" />
+                    <div class="image__overlay image__overlay--blur">Trends and transformation</div>
+                </div>
+            </a>
+            <a href="portfolio/Liepajas.Vesels.Aktivs.Laimigs" target="_self">
+                <div class="image">
+                    <img class="image__img" src="portfolio/Liepaja.Vesels.Aktivs.Laimigs.jpg" alt="" />
+                    <div class="image__overlay image__overlay--blur">Liepāja.Vesels.Aktīvs.Laimīgs</div>
+                </div>
+            </a>
+            <a href="portfolio/Liepaja_2023-2024" target="_self">
+                <div class="image">
+                    <img class="image__img" src="portfolio/Liepaja_2023-2024.jpg" alt="" />
+                    <div class="image__overlay image__overlay--blur">Liepāja 2023-2024</div>
+                </div>
+            </a>
         </div>
     </div>
-    <div class="section" id="section3">
-        <!--<h1>Job Experience</h1>-->
-	    <div class="slide">
-            <h1>Ghetto eGames Baltics Open 2022</h1>
-            <h2>Biggest turning point into semi-proffesional</h2>
-            <p>While I was playing CS:GO, I was very interested into e-sports event broadcasts of that game.<br>
-            One day, one close friend contacted me with an opurtunity of being an observer for "minor" event, and of course I accepted it!<br>
-            Now rest, is history...</p>
+
+    <div class="parallax-container" style="height: 40vh;">
+        <div class="background-image" style="background-image: url('assets/parallax/_KF55108.JPG');">
+            <div class="color-filter"></div>
         </div>
-	    <div class="slide">
-            <h1>Ghetto Games Daugavpils</h1>
-            <h2>Camera? What is that?</h2>
-            <p>Jokes asside, by receiving a message from same friend, I got my first time opurtunity to be a on-field camera operator.<br>
-            Honestly, it was my first time using that kind of professional equipment (for those, who are wondering - Sony PXW-Z90), and<br>
-            surprise, surprise, I was actually good with it (except with a focus, because, yes... Autofocus, for me, ruled).</p>
+        <!-- Content for the first parallax section if needed -->
+    </div>
+
+    <div class="quote">
+        <i><h1>"Creativity is seeing<br>what others see<br>and thinking<br>what no one else ever thought."</h1></i>
+        <p>- Albert Einstein</p>
+    </div>
+    <div id="Socials" class="socials">
+        <h1>Socials</h1>
+        <div class="links">
+            <a href="https://youtube.com/@mAa4a/" target="_blank"><box-icon name='youtube' type='logo' ></box-icon></a>
+            <a href="https://twitch.tv/mAa4a/"><box-icon name='twitch' type='logo' ></box-icon></a>
+            <a href="https://instagram.com/mAa4a.v/"><box-icon type='logo' name='instagram'></box-icon></a>
+            <a href="mailto:madars.vagalis@gmail.com" class="email-button"><box-icon name='envelope' type='solid' ></box-icon></a>
+            <a href="https://www.linkedin.com/in/madars-vagalis-9a1336257/"><box-icon name='linkedin-square' type='logo' ></box-icon></a>
+            <a href="https://www.facebook.com/people/Photos-by-MV/100094124795924/"><box-icon name='facebook-square' type='logo' ></box-icon></a>
+            <a href="https://github.com/mAa4a97/"><box-icon name='github' type='logo' ></box-icon></a>
         </div>
-	    <div class="slide">
-            <h1>Ghetto Games Euroleague Finals 2023</h1>
-            <h2>That's something serious...</h2>
-            <p>Later that month, I had to learn something new, on which I had huge responsibility: be the man, who is responsible for<br>
-            broadcast and LCD display scoreboard, which ment, I can't miss any goals. For information, I was using a software called<br>
-            vMix Universal Title Container.</p>
+    </div>
+    <div class="cc">
+        <input type="button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" value="©mAa4a, 2024" style="background: none; color: inherit; border: none; padding: 0; font: inherit; cursor: pointer; outline: inherit;">
+    </div>
+
+    <!-- Fix this later, because this shit is brokeh -->
+
+    <div id="eventOverlay" class="overlay">
+        <span id="overlayClose" class="close-btn" onclick="closeOverlay()">×</span>
+        <div id="overlayContent" class="overlay-content">
+            <img id="eventImage" class="event-image" src="" alt="Event Image">
+            <div id="eventDescription" class="event-description"></div>
+            <div id="eventDates" class="event-dates">
+                <span id="eventStartDateLabel" class="event-date-label">Date:</span>
+                <span id="eventStartDate" class="event-date"></span>
+                <span id="eventEndDateLabel" class="event-date-label" style="display: none;">End:</span>
+                <span id="eventEndDate" class="event-date" style="display: none;"></span>
+            </div>
         </div>
-	    <div class="slide">
-            <h1>Centra Draudze</h1>
-            <h2>Being much more involved with broadcast</h2>
-            <p>At early august started visiting one of the local churches, which needed people, who would be willing to learn<br>
-            something new. There I learned being the audio technician for youth events, and also, I improved my skills with camera.<br>
-            At one point I also started to learn being a broadcast director, but at the moment, my skills for that aren't the best.</p>
-        </div>
-        <div class="slide">
-            <h1>You+</h1>
-            <h2>The future?</h2>
-            <p>By aquaring my first camera gear - Panasonis Lumix GH5, recently, I started working at youth organization You+<br>
-            as an photographer and graphics designer. We will see how it will work out! :)</p>
-        </div>
-	</div>
-	<div class="section" id="section4"><h1>Socials</h1></div>
-    <div class="section" id="section5"><h1>Contacts</h1></div>
-</div>
+    </div>
 
+    <!-- ------------------------------------------- -->
 
-
-<script type="text/javascript" src="./resources/js/fullpage.js"></script>
-<script type="text/javascript">
-
-    var g_interval;
-    
-	var myFullpage = new fullpage('#fullpage', {
-		sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
-        scrollingSpeed: 700,
-        autoScrolling: true,
-        continuousHorizontal: true,
-        scrollHorizontally: true,
-        css3: true,
-        loop: false,
-        anchors: ['Landing_page', 'About_Me', 'Hobies_and_other', 'My_Experience', 'Socials', 'Contacts'],
-        menu: '#myMenu',
-        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
-        navigation: true,
-        slidesNavigation: true,
-        controlArrows: false,
-
-        /*afterSlideLoad: function(section, origin, destination, direction){
-            slideIndexS = destination.index+1;
-        },
-        onLeave: function(origin, destination, direction) {
-            console.log('Index: ' + origin.index + ' Slide Index: ' + slideIndexS);
-            //console.log(index, nextIndex, direction, sliding);
-            if (origin.index === 2 && !sliding) {
-                if (direction === 'down' && slideIndexS < 6) {
-                    $.fn.fullpage.moveSlideRight();
-                    return false;
-                } else if (direction === 'up' && slideIndexS > 2) {
-                    $.fn.fullpage.moveSlideLeft();
-                    return false;
-                }
-            } else if (sliding) {
-                return false;
-            }
-        },*/        
-
-        afterLoad: function (origin, destination, direction) {
-            clearInterval(g_interval);
-            
-            // 1000 milliseconds lapse
-            const lapse = 6000;
-            
-            if(destination.item.querySelectorAll('.fp-slides').length){
-            g_interval = setInterval(function () {
-                fullpage_api.moveSlideRight();
-            }, lapse);
-            }
-        },
-
-        /*events
-	    onLeave: function(origin, destination, direction){},
-	    afterLoad: function(origin, destination, direction){},
-	    afterRender: function(){},
-	    afterResize: function(width, height){},
-	    afterReBuild: function(){},
-	    afterResponsive: function(isResponsive){},
-	    afterSlideLoad: function(section, origin, destination, direction){},
-	    onSlideLeave: function(section, origin, destination, direction){}*/
-	});
-
-    //methods
-    fullpage_api.setAllowScrolling(true);
-</script>
+    <script src="./resources/js/script.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
+</html>
