@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Photos For Libau Active | Gallery | mAa4a</title>
+    <link rel="icon" type="image/x-icon" href="../../assets/header/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="./resources/css/style.css" />
+</head>
+    
+    <div class="navbar">
+        <a href="../#Portfolio" class="button">Portfolio</a>
+        <div class="logo"></div>
+        <a href="../#Socials" class="button">Socials</a>
+    </div>
+
+    <div class="m-p-g">
+        <div class="m-p-g__thumbs" data-google-image-layout data-max-height="350">
+            <img src="./Photos_for_Libau_Active-img/p-1.jpg" data-full="./Photos_for_Libau_Active-img/p-1.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-2.jpg" data-full="./Photos_for_Libau_Active-img/p-2.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-3.jpg" data-full="./Photos_for_Libau_Active-img/p-3.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-4.jpg" data-full="./Photos_for_Libau_Active-img/p-4.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-5.jpg" data-full="./Photos_for_Libau_Active-img/p-5.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-6.jpg" data-full="./Photos_for_Libau_Active-img/p-6.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-7.jpg" data-full="./Photos_for_Libau_Active-img/p-7.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-8.jpg" data-full="./Photos_for_Libau_Active-img/p-8.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-9.jpg" data-full="./Photos_for_Libau_Active-img/p-9.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-10.jpg" data-full="./Photos_for_Libau_Active-img/p-10.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-11.jpg" data-full="./Photos_for_Libau_Active-img/p-11.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-12.jpg" data-full="./Photos_for_Libau_Active-img/p-12.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-13.jpg" data-full="./Photos_for_Libau_Active-img/p-13.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-14.jpg" data-full="./Photos_for_Libau_Active-img/p-14.jpg" class="m-p-g__thumbs-img" />
+            <img src="./Photos_for_Libau_Active-img/p-15.jpg" data-full="./Photos_for_Libau_Active-img/p-15.jpg" class="m-p-g__thumbs-img" />
+        </div>
+
+        <div class="m-p-g__fullscreen"></div>
+    </div>
+
+    <script>
+        var elem = document.querySelector('.m-p-g');
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var gallery = new MaterialPhotoGallery(elem);
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+        var logo = document.querySelector('.logo');
+
+        logo.addEventListener('click', function () {
+            //window.scrollTo({ top: 0, behavior: 'smooth' });
+            //window.open("../../../index.html", "_self");
+            location.href="../../../", "_self";
+        });
+});
+    </script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/45226/material-photo-gallery.min.js'></script>
+</html>
