@@ -172,6 +172,7 @@ function generateEventTimeline() {
         //dot.style.backgroundColor = '#4CAF50';
         //dot.style.borderRadius = '50%';
         //dot.style.transform = 'translateX(-50%)';
+        dot.ariaLabel = event.title;
         dot.style.cursor = 'pointer';
         dot.style.left = index * dotWidthPercentage + 5 + '%';
 
