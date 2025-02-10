@@ -86,6 +86,7 @@ body {
     color: #333; /* Adjust the color of the buttons */
     border: 1px solid #333; /* Add a border to the buttons */
     border-radius: 5px; /* Make the buttons rounded */
+    cursor: pointer;
 }
 
 .logo {
