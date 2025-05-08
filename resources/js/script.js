@@ -288,3 +288,29 @@ document.addEventListener('click', function (event) {
         closeOverlay();
     }
 });
+
+// LOADING SCREEN
+window.addEventListener("load", () => {
+    const images = document.querySelectorAll("img[loading='lazy']");
+    const visibleImages = Array.from(images).filter(img => {
+    const rect = img.getBoundingClientRect();
+    return rect.top < window.innerHeight;
+    })
+    let loadedCount = 0
+    visibleImages.forEach(img => {
+    if (img.complete) {
+        loadedCount++;
+    } else {
+        img.addEventListener('load', () => {
+        loadedCount++;
+        if (loadedCount === visibleImages.length) {
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+        });
+    }
+    })
+    // If all are already loaded
+    if (loadedCount === visibleImages.length) {
+    document.getElementById('loading-overlay').style.display = 'none';
+    }
+});
