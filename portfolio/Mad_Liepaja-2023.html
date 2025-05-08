@@ -8,6 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="./resources/css/style.css" />
+    <style>
+        #loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #000;
+            border-top-color: #ccc;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
     
     <div class="navbar">
@@ -15,7 +39,11 @@
         <div class="logo" aria-label="Go to previous page"></div>
         <a href="../#Socials" class="button" aria-label="Go to socials section">Socials</a>
     </div>
-
+    <!-- LOADING SCREEN ANIMATION-->
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+    <!--IMAGE GALLERY-->
     <div class="m-p-g">
         <div class="m-p-g__thumbs" data-google-image-layout data-max-height="350">
             <img loading="lazy" src="./Mad_Liepaja-2023-img/KF57251.JPG" data-full="./Mad_Liepaja-2023-img/KF57251.JPG" class="m-p-g__thumbs-img" />
@@ -51,6 +79,34 @@
             location.href="../../../", "_self";
         });
 });
+        // LOADING SCREEN
+        window.addEventListener("load", () => {
+            const images = document.querySelectorAll("img[loading='lazy']");
+            const visibleImages = Array.from(images).filter(img => {
+            const rect = img.getBoundingClientRect();
+            return rect.top < window.innerHeight;
+            });
+
+            let loadedCount = 0;
+
+            visibleImages.forEach(img => {
+            if (img.complete) {
+                loadedCount++;
+            } else {
+                img.addEventListener('load', () => {
+                loadedCount++;
+                if (loadedCount === visibleImages.length) {
+                    document.getElementById('loading-overlay').style.display = 'none';
+                }
+                });
+            }
+            });
+
+            // If all are already loaded
+            if (loadedCount === visibleImages.length) {
+            document.getElementById('loading-overlay').style.display = 'none';
+            }
+        });
     </script>
     <script src="./resources/js/marterial-photo-gallery.min.js"></script>
     <script src="./resources/js/script.js"></script>
