@@ -264,8 +264,54 @@ body {
 }
 
 .gallery-view .gallery {
-    columns: 15rem 3;
+    display: grid;
     gap: 1.4rem;
+    justify-content: center;
+}
+
+.gallery-view .gallery a {
+    height: 100%;
+}
+
+@media only screen and (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); /* Allow smaller columns on very small screens */
+    }
+
+    .gallery a {
+        /* Adjust the child size if needed, for example: */
+        height: 80px; /* You can modify this depending on your needs */
+    }
+
+    .image  {
+        display: flex;
+        height: 80px;
+        justify-content: center;
+        justify-content: center;
+    }
+
+    .gallery .image .image__img {
+        height: 80px;
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .gallery {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium-sized screens */
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .gallery {
+        grid-template-columns: repeat(3, 26rem); /* 3 columns of fixed width (15rem) for large screens */
+    }
 }
 
 .gallery-view .gallery img {

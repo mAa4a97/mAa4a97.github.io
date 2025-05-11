@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const username = document.getElementById('username');
   
     overlay.style.display = 'flex';
+    //username.style.display = 'none';
   
     const updateProgress = () => {
       loadedImages++;
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         setTimeout(() => {
           overlay.style.display = 'none';
-          username.style.display = 'block';
+          //username.style.display = 'flex';
         }, 300); // slight delay for smoother UX
       }
     };
