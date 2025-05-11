@@ -1,3 +1,41 @@
+// LOADING SCREEN
+document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    const totalImages = images.length;
+    let loadedImages = 0;
+  
+    if (totalImages === 0) return;
+  
+    const overlay = document.getElementById('loading-overlay');
+    const bar = document.getElementById('loading-bar');
+    const username = document.getElementById('username');
+  
+    overlay.style.display = 'flex';
+  
+    const updateProgress = () => {
+      loadedImages++;
+      const percent = (loadedImages / totalImages) * 100;
+      bar.style.width = `${percent}%`;
+  
+      if (loadedImages === totalImages) {
+        globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        setTimeout(() => {
+          overlay.style.display = 'none';
+          username.style.display = 'block';
+        }, 300); // slight delay for smoother UX
+      }
+    };
+  
+    images.forEach(img => {
+      if (img.complete) {
+        updateProgress();
+      } else {
+        img.addEventListener('load', updateProgress);
+        img.addEventListener('error', updateProgress); // handle broken images too
+      }
+    });
+  });
+
 document.addEventListener("DOMContentLoaded", function () {
     var navbar = document.querySelector('.navbar');
     var username = document.querySelector('.username');
@@ -286,31 +324,5 @@ document.addEventListener('click', function (event) {
     var overlay = document.getElementById('eventOverlay');
     if (overlayActive && !overlay.contains(event.target)) {
         closeOverlay();
-    }
-});
-
-// LOADING SCREEN
-window.addEventListener("load", () => {
-    const images = document.querySelectorAll("img[loading='lazy']");
-    const visibleImages = Array.from(images).filter(img => {
-    const rect = img.getBoundingClientRect();
-    return rect.top < window.innerHeight;
-    })
-    let loadedCount = 0
-    visibleImages.forEach(img => {
-    if (img.complete) {
-        loadedCount++;
-    } else {
-        img.addEventListener('load', () => {
-        loadedCount++;
-        if (loadedCount === visibleImages.length) {
-            document.getElementById('loading-overlay').style.display = 'none';
-        }
-        });
-    }
-    })
-    // If all are already loaded
-    if (loadedCount === visibleImages.length) {
-    document.getElementById('loading-overlay').style.display = 'none';
     }
 });

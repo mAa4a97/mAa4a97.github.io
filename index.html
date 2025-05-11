@@ -4,7 +4,6 @@
 <head>
     <title>mAa4a</title>
     <link rel="icon" type="image/x-icon" href="./assets/header/logo.png">
-    <link rel="preload" href="./assets/pics/opener/opener_main.png" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Stylesheets -->
@@ -12,11 +11,19 @@
 </head>
 
 <body>
-    <div class="parallax-container">
-        <div class="background-image">
-            <div class="username">mAa4a</div>
+    <!-- LOADING SCREEN ANIMATION-->
+    <div id="loading-overlay" style="display: none">
+        <div class="spinner"></div>
+        <div id="loading-bar-container">
+          <div id="loading-bar"></div>
         </div>
-        <img class="overlay-image" src="./assets/pics/opener/opener_overlay.png" alt="Overlay Image - Liepāja North pier">
+    </div>
+
+    <div class="parallax-container">
+        <div loading="lazy" class="background-image" style="background-image: url('./assets/pics/opener/opener_main.png">
+            <div id="username" class="username" style="display: none;">mAa4a</div>
+        </div>
+        <img loading="lazy" class="overlay-image" src="./assets/pics/opener/opener_overlay.png" alt="Overlay Image - Liepāja North pier">
         <!--<div class="overlay-image">test</div>-->
     </div>
 
@@ -25,10 +32,6 @@
         <a href="#Portfolio" class="button" aria-label="Go to portfolio section">Portfolio</a>
         <div class="logo" aria-label="Go to About Me section"></div>
         <a href="#Socials" class="button" aria-label="Go to socials section">Socials</a>
-    </div>
-    <!-- LOADING SCREEN ANIMATION-->
-    <div id="loading-overlay">
-        <div class="spinner"></div>
     </div>
     <!-- Text Section -->
     <div class="text-section" id="about-me">
@@ -47,8 +50,8 @@
         </div>
     </div>
 
-    <div class="parallax-container">
-        <div class="background-image" style="background-image: url('./assets/parallax/Piipa_1.JPG');">
+    <div class="parallax-container" style="height: 40vh;">
+        <div loading="lazy" class="background-image" style="background-image: url('./assets/parallax/Piipa_1.JPG');">
             <div class="color-filter"></div>
         </div>
         <!-- Content for the first parallax section if needed -->
@@ -61,7 +64,7 @@
         <div class="event-timeline" id="eventTimeline"></div>
     </div>
 
-    <div class="gallery-view">
+    <div loading="lazy" class="gallery-view">
         <div id="Photos"><h1>Some of my work</h1></div>
         <div class="gallery">
             <!--<a href="https://youtube.com/@mAa4a/" target="_blank">-->
@@ -135,7 +138,7 @@
     </div>
 
     <div class="parallax-container" style="height: 40vh;">
-        <div class="background-image" style="background-image: url('./assets/parallax/KF55108.JPG');">
+        <div style="background-image: url('./assets/parallax/KF55108.JPG');">
             <div class="color-filter"></div>
         </div>
         <!-- Content for the first parallax section if needed -->
