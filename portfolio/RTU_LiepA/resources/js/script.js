@@ -43,9 +43,31 @@ document.addEventListener("DOMContentLoaded", function () {
         location.href="../../../", "_self";
     });
 
-    // Add event listener to Socials for scrolling to the bottom
+    var responsivePage = document.querySelector('.responsiveArtwork');
+    responsivePage.addEventListener('click', function () {
+        //window.scrollTo({ top: 0, behavior: 'smooth' });
+        //window.open("../../../index.html", "_self");
+        location.href="./interactive_thing/Untitled-2.html", "_self";
+    });
+
+    var gifSeries = document.querySelector('.gifSeries');
+    gifSeries.addEventListener('click', function () {
+        //window.scrollTo({ top: 0, behavior: 'smooth' });
+        //window.open("../../../index.html", "_self");
+        location.href="./second/gif_series.html", "_self";
+    });
+
+    var glitchArt = document.querySelector('.glitchArt');
+    glitchArt.addEventListener('click', function () {
+        //window.scrollTo({ top: 0, behavior: 'smooth' });
+        //window.open("../../../index.html", "_self");
+        location.href="./second/glitch_art.html", "_self";
+    });
     
+
 });
+
+// redirects
 
 // FULLPAGE
 const sections = document.querySelectorAll('.page');
