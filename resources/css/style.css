@@ -273,9 +273,9 @@ body {
     height: 100%;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 344px) and (max-width: 430px) {
     .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); /* Allow smaller columns on very small screens */
+        grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); /* Allow smaller columns on very small screens */
     }
 
     .gallery a {
@@ -296,7 +296,7 @@ body {
     }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 431px) and (max-width: 768px) {
     .gallery {
         grid-template-columns: 1fr; /* Single column layout on smaller screens */
     }
@@ -409,7 +409,18 @@ body {
     background-color: black;
     color: white;
     font-size: x-small;
-    padding-bottom: 1%;
+    padding-bottom: 1%;    
+}
+
+.cc
+input {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }
 
 /* Additional styles for the overlay */

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Virtual Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+
+  </head>
+  <body>
+    <a-scene>
+        <a-plane id="navmesh"
+         rotation="-90 0 0"
+         width="60"
+         height="20"
+         color="#cccccc"
+         nav-mesh
+         static-body></a-plane>
+
+         <a-entity id="cameraRig"
+         movement-controls="constrainToNavMesh: true"
+         position="0 0 8">
+                <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+        </a-entity>
+    
+
+      <!-- Walls -->
+      <a-box position="0 2.5 -10" depth="0.1" height="5" width="60" color="#f4f4f4"></a-box> <!-- Back wall -->
+      <a-box position="-30 2.5 0" depth="20" height="5" width="0.1" color="#f4f4f4"></a-box> <!-- Left wall -->
+      <a-box position="30 2.5 0" depth="20" height="5" width="0.1" color="#f4f4f4"></a-box> <!-- Right wall -->
+      <a-box position="0 5.1 0" width="60" height="0.1" depth="20" color="#e0e0e0"></a-box> <!-- Ceiling -->
+
+      <!-- Camera + Controls -->
+      <a-entity position="0 1.6 8">
+        <a-camera wasd-controls look-controls></a-camera>
+      </a-entity>
+
+      <!-- Lighting -->
+      <a-light type="ambient" color="#ffffff" intensity="0.6"></a-light>
+      <a-light type="point" position="0 5 0" intensity="0.8"></a-light>
+
+      <!-- Gallery images -->
+      <!-- Place 30 images on both walls (15 left, 15 right) -->
+      <!-- Left Wall -->
+      <a-entity id="left-wall-images">
+        <!-- We'll place them using a script -->
+      </a-entity>
+
+      <!-- Right Wall -->
+      <a-entity id="right-wall-images">
+        <!-- Same here -->
+      </a-entity>
+    </a-scene>
+
+    <script>
+      const imageUrls = Array.from({ length: 30 }, (_, i) =>
+        `https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-${i + 1}`
+      );
+
+      const leftWall = document.getElementById('left-wall-images');
+      const rightWall = document.getElementById('right-wall-images');
+
+      for (let i = 1; i < 16; i++) {
+        const y = 3 - (i % 5) * 1.2;
+        const z = -8 + Math.floor(i / 5) * 6;
+        const imgLeft = document.createElement('a-image');
+        imgLeft.setAttribute('src', imageUrls[i]);
+        imgLeft.setAttribute('position', `-29.9 ${y} ${z}`);
+        imgLeft.setAttribute('rotation', '0 90 0');
+        imgLeft.setAttribute('width', '2');
+        imgLeft.setAttribute('height', '2');
+        leftWall.appendChild(imgLeft);
+      }
+
+      for (let i = 16; i < 31; i++) {
+        const y = 3 - ((i - 15) % 5) * 1.2;
+        const z = -8 + Math.floor((i - 15) / 5) * 6;
+        const imgRight = document.createElement('a-image');
+        imgRight.setAttribute('src', imageUrls[i]);
+        imgRight.setAttribute('position', `29.9 ${y} ${z}`);
+        imgRight.setAttribute('rotation', '0 -90 0');
+        imgRight.setAttribute('width', '2');
+        imgRight.setAttribute('height', '2');
+        rightWall.appendChild(imgRight);
+      }
+    </script>
+  </body>
+</html>
