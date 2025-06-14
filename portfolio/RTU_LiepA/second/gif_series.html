@@ -3,23 +3,31 @@
 
 <head>
     <title>Gif Series | mAa4a</title>
-    <link rel="icon" type="image/x-icon" href="../../assets/header/logo.png">
+    <link rel="icon" type="image/x-icon" href="../resources/header/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="./resources/css/style.css" />
+    <script src="../resources/fancybox/fancybox/fancybox.umd.js"></script>
+    <link rel="stylesheet" href="../resources/fancybox/fancybox/fancybox.css" />
 </head>
 
 <body>
     <div class="navbar">
-        <a href="../#Portfolio" class="button" aria-label="Go to portfolio section">Portfolio</a>
+        <a href="../#Opener" class="button" aria-label="Go to portfolio section">Back</a>
         <div class="logo" aria-label="Go to previous page"></div>
-        <a href="../#Socials" class="button" aria-label="Go to socials section">Socials</a>
+        <a href="https://mAa4a.id.lv/#Portfolio" class="button" aria-label="Go to socials section">Portfolio</a>
     </div>
     <div class="image-container">
-        <img src="../resources/assets/gif_series/Loop_1.gif" alt="" />
-        <img src="../resources/assets/gif_series/Loop_2.gif" alt="" />
-        <img src="../resources/assets/gif_series/Loop_3.gif" alt="" />
+        <a href="../resources/assets/gif_series/Loop_1.gif" data-fancybox="gallery" data-caption="Loop 1">
+            <img src="../resources/assets/gif_series/Loop_1.gif" alt="" />
+        </a>
+        <a href="../resources/assets/gif_series/Loop_2.gif" data-fancybox="gallery" data-caption="Loop 2">
+            <img src="../resources/assets/gif_series/Loop_2.gif" alt="" />
+        </a>
+        <a href="../resources/assets/gif_series/Loop_3.gif" data-fancybox="gallery" data-caption="Loop 3">
+            <img src="../resources/assets/gif_series/Loop_3.gif" alt="" />
+        </a>
     </div>
     <div class="title">
         <h1></h1>
@@ -29,5 +37,11 @@
         </p>
     </div>
     <script src="./resources/js/script.js"></script>
+    <script>
+        // Initialize Fancybox
+        Fancybox.bind("[data-fancybox]", {
+            // Options can be added here
+        });
+    </script>
 </body>
 </html>

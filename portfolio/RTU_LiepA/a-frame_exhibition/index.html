@@ -1,92 +1,233 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>Virtual Gallery</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
-
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <script src="./simple-navmesh-constraint.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../resources/header/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>A-frame Gallery | mAa4a</title>
   </head>
   <body>
-    <a-scene>
-        <a-plane id="navmesh"
-         rotation="-90 0 0"
-         width="60"
-         height="20"
-         color="#cccccc"
-         nav-mesh
-         static-body></a-plane>
-
-         <a-entity id="cameraRig"
-         movement-controls="constrainToNavMesh: true"
-         position="0 0 8">
-                <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
-        </a-entity>
-    
-
-      <!-- Walls -->
-      <a-box position="0 2.5 -10" depth="0.1" height="5" width="60" color="#f4f4f4"></a-box> <!-- Back wall -->
-      <a-box position="-30 2.5 0" depth="20" height="5" width="0.1" color="#f4f4f4"></a-box> <!-- Left wall -->
-      <a-box position="30 2.5 0" depth="20" height="5" width="0.1" color="#f4f4f4"></a-box> <!-- Right wall -->
-      <a-box position="0 5.1 0" width="60" height="0.1" depth="20" color="#e0e0e0"></a-box> <!-- Ceiling -->
-
-      <!-- Camera + Controls -->
-      <a-entity position="0 1.6 8">
-        <a-camera wasd-controls look-controls></a-camera>
-      </a-entity>
-
-      <!-- Lighting -->
-      <a-light type="ambient" color="#ffffff" intensity="0.6"></a-light>
-      <a-light type="point" position="0 5 0" intensity="0.8"></a-light>
-
-      <!-- Gallery images -->
-      <!-- Place 30 images on both walls (15 left, 15 right) -->
-      <!-- Left Wall -->
-      <a-entity id="left-wall-images">
-        <!-- We'll place them using a script -->
-      <a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-2.jpg" position="-29.9 3.83377 -5.798" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-3.jpg" position="-29.9 3.63262 -8" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-4.jpg" position="-29.9 1.25096 -8" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-5.jpg" position="-29.9 -1.7999999999999998 -8" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-6.jpg" position="-29.9 3.87173 -2" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-7.jpg" position="-29.9 1.28061 -4.5033" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-8.jpg" position="-29.9 1.64977 -2" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-9.jpg" position="-29.9 1.53223 1.05765" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-10.jpg" position="-29.9 -1.7999999999999998 -2" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-11.jpg" position="-29.9 3.0012 6.42742" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-12.jpg" position="-29.9 2.93044 4" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-13.jpg" position="-29.9 3.66379 1.17692" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-14.jpg" position="-29.83922 1.40979 8.88964" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-15.jpg" position="-29.9 -1.7999999999999998 4" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-16.jpg" position="-29.47334 3.57885 8.74508" rotation="0 90 0" width="2" height="2" material="" geometry=""></a-image></a-entity>
-
-      <!-- Right Wall -->
-      <a-entity id="right-wall-images">
-        <!-- Same here -->
-      <a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-17.jpg" position="29.9 3.69075 -8" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-18.jpg" position="29.9 1.56548 -8" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-19.jpg" position="29.9 1.45165 -5.42526" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-20.jpg" position="29.9 -1.7999999999999998 -8" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-21.jpg" position="29.9 3.66497 -5.47477" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-22.jpg" position="29.9 3.71064 -2.59248" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-23.jpg" position="29.9 1.47965 -2.62987" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-24.jpg" position="29.9 1.51285 0.41466" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-25.jpg" position="29.9 -1.7999999999999998 -2" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-26.jpg" position="29.9 3.71526 0.41253" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-27.jpg" position="29.9 3.59933 4" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-28.jpg" position="29.9 1.53667 4" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-29.jpg" position="29.63188 2.38817 6.80015" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-30.jpg" position="29.9 -1.7999999999999998 4" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image><a-image src="undefined" position="29.9 3 10" rotation="0 -90 0" width="2" height="2" material="" geometry=""></a-image></a-entity>
-        <!-- Same here -->
-      </a-entity>
-    </a-scene>
-    <!--
+    <a id="go-back" href="../">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" alt="exit" style="position:absolute; z-index: 99; width: 60px; padding: 2em;">
+      <circle cx="40" cy="40" r="40" fill="#D9D9D9"></circle>
+      <rect x="18" y="39.2843" width="40" height="7" rx="3.5" transform="rotate(-45 18 39.2843)" fill="white"></rect>
+      <rect x="18" y="39.2843" width="40" height="7" rx="3.5" transform="rotate(-45 18 39.2843)" fill="white"></rect>
+      <rect x="22.9497" y="35" width="40" height="7" rx="3.5" transform="rotate(45 22.9497 35)" fill="white"></rect>
+      <rect x="22.9497" y="35" width="40" height="7" rx="3.5" transform="rotate(45 22.9497 35)" fill="white"></rect>
+    </svg>
     <script>
-      const imageUrls = Array.from({ length: 30 }, (_, i) =>
-        `https://raw.githubusercontent.com/mAa4a97/mAa4a97.github.io/refs/heads/main/portfolio/RTU_LiepA/a-frame_exhibition/assets/bildes/images-${i + 1}.jpg`
-      );
-
-      const leftWall = document.getElementById('left-wall-images');
-      const rightWall = document.getElementById('right-wall-images');
-
-      for (let i = 1; i < 16; i++) {
-        const y = 3 - (i % 5) * 1.2;
-        const z = -8 + Math.floor(i / 5) * 6;
-        const imgLeft = document.createElement('a-image');
-        imgLeft.setAttribute('src', imageUrls[i]);
-        imgLeft.setAttribute('position', `-29.9 ${y} ${z}`);
-        imgLeft.setAttribute('rotation', '0 90 0');
-        imgLeft.setAttribute('width', '2');
-        imgLeft.setAttribute('height', '2');
-        leftWall.appendChild(imgLeft);
-      }
-
-      for (let i = 16; i < 31; i++) {
-        const y = 3 - ((i - 15) % 5) * 1.2;
-        const z = -8 + Math.floor((i - 15) / 5) * 6;
-        const imgRight = document.createElement('a-image');
-        imgRight.setAttribute('src', imageUrls[i]);
-        imgRight.setAttribute('position', `29.9 ${y} ${z}`);
-        imgRight.setAttribute('rotation', '0 -90 0');
-        imgRight.setAttribute('width', '2');
-        imgRight.setAttribute('height', '2');
-        rightWall.appendChild(imgRight);
-      }
+    document.getElementById("go-back").addEventListener("click", () => {
+    history.back();
+    });
     </script>
-    -->
+  </a>
+    <a-scene>
+      <a-assets>
+        <img id="img1" src="./assets/bildes/images-1.jpg">
+        <img id="img2" src="./assets/bildes/images-2.jpg">
+        <img id="img3" src="./assets/bildes/images-3.jpg">
+        <img id="img4" src="./assets/bildes/images-4.jpg">
+        <img id="img5" src="./assets/bildes/images-5.jpg">
+        <img id="img6" src="./assets/bildes/images-6.jpg">
+        <img id="img7" src="./assets/bildes/images-7.jpg">
+        <img id="img8" src="./assets/bildes/images-8.jpg">
+        <img id="img9" src="./assets/bildes/images-9.jpg">
+        <img id="img10" src="./assets/bildes/images-10.jpg">
+        <img id="img11" src="./assets/bildes/images-11.jpg">
+        <img id="img12" src="./assets/bildes/images-12.jpg">
+        <img id="img13" src="./assets/bildes/images-13.jpg">
+        <img id="img14" src="./assets/bildes/images-14.jpg">
+        <img id="img15" src="./assets/bildes/images-15.jpg">
+        <img id="img16" src="./assets/bildes/images-16.jpg">
+        <img id="img17" src="./assets/bildes/images-17.jpg">
+        <img id="img18" src="./assets/bildes/images-18.jpg">
+        <img id="img19" src="./assets/bildes/images-19.jpg">
+        <img id="img20" src="./assets/bildes/images-20.jpg">
+        <img id="img21" src="./assets/bildes/images-21.jpg">
+        <img id="img22" src="./assets/bildes/images-22.jpg">
+        <img id="img23" src="./assets/bildes/images-23.jpg">
+        <img id="img24" src="./assets/bildes/images-24.jpg">
+        <img id="img25" src="./assets/bildes/images-25.jpg">
+        <img id="img26" src="./assets/bildes/images-26.jpg">
+        <img id="img27" src="./assets/bildes/images-27.jpg">
+        <img id="img28" src="./assets/bildes/images-28.jpg">
+        <img id="img29" src="./assets/bildes/images-29.jpg">
+        <img id="img30" src="./assets/bildes/images-30.jpg">
+        <!-- TEXTURES -->
+          <!--WALL-->
+          <img id="wall_diff" src="./assets/textures/wall_textures/plastered_wall_04_diff_1k.jpg">
+          <img id="wall_arm" src="./assets/textures/wall_textures/plastered_wall_04_arm_1k.jpg">
+          <img id="wall_normal" src="./assets/textures/wall_textures/plastered_wall_04_nor_gl_1k.jpg">
+          <!--FLOOR-->
+          <img id="floor_diff" src="./assets/textures/floor_texture/worn_planks_diff_1k.jpg">
+          <img id="floor_arm" src="./assets/textures/floor_texture/worn_planks_arm_1k.jpg">
+          <img id="floor_normal" src="./assets/textures/floor_texture/worn_planks_nor_gl_1k.jpg">
+        <!--MODELS-->
+        <a-asset-item id="sofa_model" src="./assets/models/sofa/painted_wooden_sofa_1k.gltf"></a-asset-item>
+        <a-asset-item id="table_model" src="./assets/models/table/wooden_table_02_1k.gltf"></a-asset-item>
+        <a-asset-item id="camera" src="./assets/models/camera/Camera_01_1k.gltf"></a-asset-item>
+        <a-asset-item id="chandelier" src="./assets/models/chandelier/Chandelier_01_1k.gltf"></a-asset-item>
+        <a-asset-item id="power_box" src="./assets/models/power_box/Power_Box_01_1k.gltf"></a-asset-item>
+      </a-assets>
+            <!-- Camera rig with navmesh constraint and keyboard controls -->
+      <a-camera wasd-controls="acceleration:20"
+        simple-navmesh-constraint="navmesh:.navmesh;fall:3; height:1.65;exclude:.navmesh-hole"
+        look-controls="pointerLockEnabled: true"
+        position="0 1.65 7"
+      ></a-camera>
+                 <!-- Lighting -->
+      <a-entity light="type: ambient; intensity: 0.25"></a-entity>
+      <a-entity light="type: directional; intensity: 0.8" position="0 10 5"></a-entity>
+
+      <!-- Room walls and ceiling -->
+      <a-plane src="#wall_diff" material="side: double; ambientOcclusionMap: #wall_arm; color: #ffffff; metalnessMap: #wall_arm; normalMap: #wall_normal; roughnessMap: #wall_arm" position="0 2.5 -9.99" height="5" width="20" color="#eee"></a-plane>
+      <a-plane src="#wall_diff" material="side: double; ambientOcclusionMap: #wall_arm; color: #ffffff; metalnessMap: #wall_arm; normalMap: #wall_normal; roughnessMap: #wall_arm" position="0 2.5 9.99" height="5" width="20" color="#eee"></a-plane>
+
+      <!-- NAVMESH -->
+      <a-plane
+        class="navmesh"
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="19.5"
+        height="19.5"
+        color="#999"
+        visible="false"
+      ></a-plane>
+
+      <!-- Ceiling -->
+      <a-plane
+        src="#wall_diff"
+        material="side: double; ambientOcclusionMap: #wall_arm; color: #ffffff; metalnessMap: #wall_arm; normalMap: #wall_normal; roughnessMap: #wall_arm"
+        position="0 5 0"
+        rotation="-90 0 0"
+        width="20"
+        height="20"
+        color="#eee"
+        ></a-plane>
+
+      <!--FLOOR TEXTURE-->
+      <a-plane
+        src="#floor_diff"
+        material="src: #floor_diff; color: #ffffff; side: double; metalnessMap: #floor_arm; normalMap: #floor_normal; roughnessMap: #floor_arm; ambientOcclusionMap: #floor_arm"
+        position="0 0.01 0"
+        rotation="-90 0 0"
+        width="20"
+        height="20"
+      ></a-plane>
+
+      <!-- Sofa model -->
+      <a-entity gltf-model="./assets/models/sofa/painted_wooden_sofa_1k.gltf" scale="2 1 1.4" position="-0.75 0.00049 0" rotation="0 -90 0">
+        <a-plane
+        class="navmesh-hole"
+        rotation="-90 0 0" width="1.5"
+        height="0.6" position="0 0 -0.02"
+        color="red"
+        scale="1.64 1.21 1"
+        ></a-plane>
+      </a-entity>
+      <a-entity gltf-model="./assets/models/sofa/painted_wooden_sofa_1k.gltf" scale="2 1 1.4" position="0.75 0.00049 0" rotation="0 90 0">
+        <a-plane
+        class="navmesh-hole"
+        rotation="-90 0 0" width="1.5"
+        height="0.6" position="0 0 -0.02"
+        color="red"
+        scale="1.64 1.21 1"
+        ></a-plane>
+      </a-entity>
+      <!-- Table model -->
+      <a-entity gltf-model="./assets/models/table/wooden_table_02_1k.gltf" position="0 0 -8.80277" scale="3 1.5 3">
+        <a-plane class="navmesh-hole" rotation="-90 0 0" width="1.5" height="0.6" color="red" scale="0.95 1.2 1"></a-plane>
+        <a-entity gltf-model="./assets/models/camera/Camera_01_1k.gltf" position="0 0.805 0" rotation="0 29.999999999999996 0" scale="1 2 1"></a-entity>
+      </a-entity>
+      <!-- Chandelier model -->
+      <a-entity gltf-model="./assets/models/chandelier/Chandelier_01_1k.gltf" position="0 5 0" rotation="0 0 0" scale="2.25 2.25 2.25"></a-entity>
+      <!-- Power box model -->
+      <a-entity gltf-model="./assets/models/power_box/Power_Box_01_1k.gltf" position="0 2 9.89" rotation="0 180 0" scale="2 2 2">
+        <a-plane class="navmesh-hole" rotation="-90 0 71.5" width="1.5" height="0.6" color="red" scale="0.35 0.1 1" position="-0.21 -1 0.18"></a-plane>
+      </a-entity>
+
+      <!-- Walls with images -->
+        <a-entity>
+          <a-plane src="#wall_diff" material="src: #wall_diff; color: #ffffff; side: double; metalnessMap: #wall_arm; normalMap: #wall_normal; roughnessMap: #wall_arm; ambientOcclusionMap: #wall_arm" position="-9.9 2.5 0" rotation="0 90 0" height="5" width="20" color="#eee"></a-plane>
+          <!-- 3 rows of 5 images -->
+          <!-- Left Wall -->
+          <a-image src="#img1"  auto-aspect="src: #img1"  position="-9.89 4.2 -8" rotation="0 90 0"></a-image>
+          <a-image src="#img2"  auto-aspect="src: #img2"  position="-9.89 4.2 -4" rotation="0 90 0"></a-image>
+          <a-image src="#img3"  auto-aspect="src: #img3"  position="-9.89 4.2 0"  rotation="0 90 0"></a-image>
+          <a-image src="#img4"  auto-aspect="src: #img4"  position="-9.89 4.2 4"  rotation="0 90 0"></a-image>
+          <a-image src="#img5"  auto-aspect="src: #img5"  position="-9.89 4.2 8"  rotation="0 90 0"></a-image>
+
+          <a-image src="#img6"  auto-aspect="src: #img6"  position="-9.89 2.5 -8" rotation="0 90 0"></a-image>
+          <a-image src="#img7"  auto-aspect="src: #img7"  position="-9.89 2.5 -4" rotation="0 90 0"></a-image>
+          <a-image src="#img8"  auto-aspect="src: #img8"  position="-9.89 2.5 0"  rotation="0 90 0"></a-image>
+          <a-image src="#img9"  auto-aspect="src: #img9"  position="-9.89 2.5 4"  rotation="0 90 0"></a-image>
+          <a-image src="#img10" auto-aspect="src: #img10" position="-9.89 2.5 8"  rotation="0 90 0"></a-image>
+
+          <a-image src="#img11" auto-aspect="src: #img11" position="-9.89 0.8 -8" rotation="0 90 0"></a-image>
+          <a-image src="#img12" auto-aspect="src: #img12" position="-9.89 0.8 -4" rotation="0 90 0"></a-image>
+          <a-image src="#img13" auto-aspect="src: #img13" position="-9.89 0.8 0"  rotation="0 90 0"></a-image>
+          <a-image src="#img14" auto-aspect="src: #img14" position="-9.89 0.8 4"  rotation="0 90 0"></a-image>
+          <a-image src="#img15" auto-aspect="src: #img15" position="-9.89 0.8 8"  rotation="0 90 0"></a-image>     
+        </a-entity>
+  
+        <!-- Wall 2 (right) -->
+        <a-entity>
+          <a-plane src="#wall_diff" material="src: #wall_diff; color: #ffffff; side: double; metalnessMap: #wall_arm; normalMap: #wall_normal; roughnessMap: #wall_arm; ambientOcclusionMap: #wall_arm" position="9.9 2.5 0" rotation="0 -90 0" height="5" width="20" color="#eee"></a-plane>
+          <!-- Right Wall -->
+          <a-image src="#img16" auto-aspect="src: #img16" position="9.89 4.2 -8" rotation="0 -90 0"></a-image>
+          <a-image src="#img17" auto-aspect="src: #img17" position="9.89 4.2 -4" rotation="0 -90 0"></a-image>
+          <a-image src="#img18" auto-aspect="src: #img18" position="9.89 4.2 0"  rotation="0 -90 0"></a-image>
+          <a-image src="#img19" auto-aspect="src: #img19" position="9.89 4.2 4"  rotation="0 -90 0"></a-image>
+          <a-image src="#img20" auto-aspect="src: #img20" position="9.89 4.2 8"  rotation="0 -90 0"></a-image>
+
+          <a-image src="#img21" auto-aspect="src: #img21" position="9.89 2.5 -8" rotation="0 -90 0"></a-image>
+          <a-image src="#img22" auto-aspect="src: #img22" position="9.89 2.5 -4" rotation="0 -90 0"></a-image>
+          <a-image src="#img23" auto-aspect="src: #img23" position="9.89 2.5 0"  rotation="0 -90 0"></a-image>
+          <a-image src="#img24" auto-aspect="src: #img24" position="9.89 2.5 4"  rotation="0 -90 0"></a-image>
+          <a-image src="#img25" auto-aspect="src: #img25" position="9.89 2.5 8"  rotation="0 -90 0"></a-image>
+
+          <a-image src="#img26" auto-aspect="src: #img26" position="9.89 0.8 -8" rotation="0 -90 0"></a-image>
+          <a-image src="#img27" auto-aspect="src: #img27" position="9.89 0.8 -4" rotation="0 -90 0"></a-image>
+          <a-image src="#img28" auto-aspect="src: #img28" position="9.89 0.8 0"  rotation="0 -90 0"></a-image>
+          <a-image src="#img29" auto-aspect="src: #img29" position="9.89 0.8 4"  rotation="0 -90 0"></a-image>
+          <a-image src="#img30" auto-aspect="src: #img30" position="9.89 0.8 8"  rotation="0 -90 0"></a-image>
+        </a-entity>
+    </a-scene>
+    <script>
+      AFRAME.registerComponent('auto-aspect', {
+        schema: {
+          src: {type: 'selector'}
+        },
+        init: function () {
+          const imgEl = this.data.src;
+          const el = this.el;
+          if (imgEl && imgEl.getAttribute('src')) {
+            const img = new Image();
+            img.src = imgEl.getAttribute('src');
+            img.onload = function () {
+              const aspect = img.width / img.height;
+              
+              // Maximum allowed dimensions
+              const maxWidth = 2;
+              const maxHeight = 1.5;
+    
+              let width = maxWidth;
+              let height = width / aspect;
+    
+              if (height > maxHeight) {
+                height = maxHeight;
+                width = height * aspect;
+              }
+    
+              el.setAttribute('width', width);
+              el.setAttribute('height', height);
+            };
+          }
+        }
+      });
+    </script>
   </body>
 </html>

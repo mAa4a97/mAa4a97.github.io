@@ -288,6 +288,14 @@ if (reversed == null) { reversed = false; }
 	props.reversed = reversed;
 	cjs.MovieClip.apply(this,[props]);
 
+	// timeline functions:
+	this.frame_0 = function() {
+		this.stop()
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(48));
+
 	// Layer_1
 	this.instance = new lib.Tween2("synched",0);
 	this.instance.setTransform(418,40);
@@ -323,6 +331,60 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(-418,-40,836,80);
 
 
+(lib.mcNeedle = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// timeline functions:
+	this.frame_0 = function() {
+		/* Click to Go to Frame and Play
+		Clicking on the specified symbol instance moves the playhead to the specified frame in the timeline and continues playback from that frame.
+		Can be used on the main timeline or on movie clip timelines.
+		
+		Instructions:
+		1. Replace the number 5 in the code below with the frame number you would like the playhead to move to when the symbol instance is clicked.
+		2.Frame numbers in EaselJS start at 0 instead of 1
+		*/
+		
+		this.Needle.addEventListener("click", fl_ClickToGoToAndPlayFromFrame_2.bind(this));
+		
+		function fl_ClickToGoToAndPlayFromFrame_2()
+		{
+			this.gotoAndPlay(0);
+		}
+		
+		
+		/* Stop at This Frame
+		The  timeline will stop/pause at the frame where you insert this code.
+		Can also be used to stop/pause the timeline of movieclips.
+		*/
+		
+		this.stop();
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(36));
+
+	// Layer_1
+	this.Needle = new lib.Needle();
+	this.Needle.name = "Needle";
+	new cjs.ButtonHelper(this.Needle, 0, 1, 2);
+
+	this.timeline.addTween(cjs.Tween.get(this.Needle).to({regY:0.1,scaleX:0.7799,scaleY:0.7799,rotation:-33.9991,x:99.65,y:138.85},15,cjs.Ease.quadInOut).wait(4).to({regY:0,scaleX:1,scaleY:1,rotation:0,x:0,y:0},16).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-418,-76.6,839.3,423.5);
+
+
 (lib.DISC = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
@@ -354,7 +416,7 @@ p.nominalBounds = new cjs.Rectangle(-238.1,-256.4,469.7,493.2);
 
 
 // stage content:
-(lib.Untitled2 = function(mode,startPosition,loop,reversed) {
+(lib.Interactive_artwork = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
 	var props = new Object();
@@ -365,13 +427,62 @@ if (reversed == null) { reversed = false; }
 	props.reversed = reversed;
 	cjs.MovieClip.apply(this,[props]);
 
-	// Layer_9
-	this.Needle = new lib.Needle();
-	this.Needle.name = "Needle";
-	this.Needle.setTransform(525,72);
-	new cjs.ButtonHelper(this.Needle, 0, 1, 2);
+	this.actionFrames = [0];
+	this.isSingleFrame = false;
+	// timeline functions:
+	this.frame_0 = function() {
+		if(this.isSingleFrame) {
+			return;
+		}
+		if(this.totalFrames == 1) {
+			this.isSingleFrame = true;
+		}
+		/* Click to Hide an Object
+		Clicking on the specified symbol instance hides it.
+		
+		Instructions:
+		1. Use this code for objects that are currently visible.
+		*/
+		this.blueSplash.addEventListener("click", fl_ClickToHide.bind(this));
+		
+		function fl_ClickToHide()
+		{
+			this.blueSplash.visible = false;
+		}
+		
+		/* Click to Hide an Object
+		Clicking on the specified symbol instance hides it.
+		
+		Instructions:
+		1. Use this code for objects that are currently visible.
+		*/
+		this.orangeSplash.addEventListener("click", fl_ClickToHide_2.bind(this));
+		
+		function fl_ClickToHide_2()
+		{
+			this.orangeSplash.visible = false;
+		}
+		
+		
+		/* Stop a Movie Clip
+		Stops the specified movie clip on stage.
+		
+		Instructions:
+		1. Use this code for movie clips that are currently playing.
+		*/
+		
+		this.movieClip_1.stop();
+	}
 
-	this.timeline.addTween(cjs.Tween.get(this.Needle).wait(1));
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
+
+	// Layer_9
+	this.movieClip_1 = new lib.mcNeedle();
+	this.movieClip_1.name = "movieClip_1";
+	this.movieClip_1.setTransform(525,72);
+
+	this.timeline.addTween(cjs.Tween.get(this.movieClip_1).wait(1));
 
 	// Layer_12
 	this.disc = new lib.DISC();

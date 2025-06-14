@@ -11,7 +11,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="authoring-tool" content="Adobe_Animate_CC">
-<title>Untitled-2</title>
+<title>Interactive artwork | mAa4a</title>
+<link rel="icon" type="image/x-icon" href="../resources/header/logo.png">
 <!-- write your code here -->
 <style>
   #animation_container {
@@ -50,7 +51,7 @@ function handleComplete(evt,comp) {
 	for(i=0; i<ssMetadata.length; i++) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
-	exportRoot = new lib.Untitled2();
+	exportRoot = new lib.Interactive_artwork();
 	stage = new lib.Stage(canvas);
 	stage.enableMouseOver();	
 	//Registers the "tick" event listener.
@@ -68,6 +69,20 @@ function handleComplete(evt,comp) {
 <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
+	<a id="go-back" href="../">
+		<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" alt="exit" style="position:absolute; z-index: 99; width: 60px; padding: 2em;">
+		  <circle cx="40" cy="40" r="40" fill="#D9D9D9"></circle>
+		  <rect x="18" y="39.2843" width="40" height="7" rx="3.5" transform="rotate(-45 18 39.2843)" fill="white"></rect>
+		  <rect x="18" y="39.2843" width="40" height="7" rx="3.5" transform="rotate(-45 18 39.2843)" fill="white"></rect>
+		  <rect x="22.9497" y="35" width="40" height="7" rx="3.5" transform="rotate(45 22.9497 35)" fill="white"></rect>
+		  <rect x="22.9497" y="35" width="40" height="7" rx="3.5" transform="rotate(45 22.9497 35)" fill="white"></rect>
+		</svg>
+		<script>
+		document.getElementById("go-back").addEventListener("click", () => {
+		history.back();
+		});
+		</script>
+	  </a>
 	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:1024px; height:970px">
 		<canvas id="canvas" width="1024" height="970" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1024px; height:970px; position: absolute; left: 0px; top: 0px; display: block;">

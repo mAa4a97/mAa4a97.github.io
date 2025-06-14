@@ -128,15 +128,36 @@ html, body {
     opacity: 0;
 }
 
-a{
-    color: white;
+.overlay-text {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
 }
 
-a:hover {
-    color: gray;
-    scale: 1.05;
-    animation: ease-in-out;
-    animation-duration: 0.5s;
+#aFrameExhibition {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#aFrameExhibition img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.aframeTitle {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  width: 90%;
+  font-size: clamp(1rem, 2vw, 2rem);
 }
 
 .button {

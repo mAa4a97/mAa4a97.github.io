@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     responsivePage.addEventListener('click', function () {
         //window.scrollTo({ top: 0, behavior: 'smooth' });
         //window.open("../../../index.html", "_self");
-        location.href="./interactive_thing/Untitled-2.html", "_self";
+        location.href="./interactive_thing/index.html", "_self";
     });
 
     var gifSeries = document.querySelector('.gifSeries');
@@ -64,6 +64,12 @@ document.addEventListener("DOMContentLoaded", function () {
         location.href="./second/glitch_art.html", "_self";
     });
     
+    var aFrameExhibition = document.querySelector('#aFrameExhibition');
+    aFrameExhibition.addEventListener('click', function () {
+        //window.scrollTo({ top: 0, behavior: 'smooth' });
+        //window.open("../../../index.html", "_self");
+        location.href="./a-frame_exhibition/index.html", "_self";
+    });
 
 });
 
