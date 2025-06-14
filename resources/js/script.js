@@ -1,17 +1,15 @@
 // LOADING SCREEN
 document.addEventListener("DOMContentLoaded", () => {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    const totalImages = images.length;
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    const overlay = document.getElementById('loading-overlay');
+    const bar = document.getElementById('loading-bar');
+  
+    let totalImages = lazyImages.length;
     let loadedImages = 0;
   
     if (totalImages === 0) return;
   
-    const overlay = document.getElementById('loading-overlay');
-    const bar = document.getElementById('loading-bar');
-    const username = document.getElementById('username');
-  
     overlay.style.display = 'flex';
-    //username.style.display = 'none';
   
     const updateProgress = () => {
       loadedImages++;
@@ -19,23 +17,38 @@ document.addEventListener("DOMContentLoaded", () => {
       bar.style.width = `${percent}%`;
   
       if (loadedImages === totalImages) {
-        globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         setTimeout(() => {
           overlay.style.display = 'none';
-          //username.style.display = 'flex';
-        }, 300); // slight delay for smoother UX
+        }, 500);
       }
     };
   
-    images.forEach(img => {
+    // Fallback for images already loaded
+    lazyImages.forEach(img => {
       if (img.complete) {
         updateProgress();
       } else {
         img.addEventListener('load', updateProgress);
-        img.addEventListener('error', updateProgress); // handle broken images too
+        img.addEventListener('error', updateProgress);
       }
     });
+  
+    // Force loading of lazy images not in viewport
+    const preloadAllLazyImages = () => {
+      lazyImages.forEach(img => {
+        if (!img.src) {
+          img.src = img.dataset.src; // assume you're using <img data-src="..." loading="lazy">
+          img.removeAttribute('loading'); // turn off lazy
+        }
+      });
+    };
+  
+    // Optional: run preload on load to avoid stuck loading bar
+    window.addEventListener("load", () => {
+      preloadAllLazyImages();
+    });
   });
+  
 
 document.addEventListener("DOMContentLoaded", function () {
     var navbar = document.querySelector('.navbar');
