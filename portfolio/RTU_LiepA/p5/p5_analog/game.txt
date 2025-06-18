@@ -1,0 +1,25 @@
+
+
+Kas būs nepieciešams:
+    Jebkāda rūtiņu lapa (var arī izmantot jeb kādu citu lapu, bet uz rūtiņu lapas būs vienkāršāk)
+    parastais zīmulis un dzēšgumija
+    Vismaz 1 (var arī izmantot 3 metamos kauliņus) metamais kauliņš no 1 līdz 6
+
+-----------------------------------------------------------------
+
+Spēles nosacījumi:
+
+1.) Uzvelc 6x6 rūtainu laukumu.
+
+Šis laukums būs spēles teritorija un katrai rūtiņai ir sava koordināta - kolona;rinda.
+Piemēram, kreisajā augšējā stūrī rūtiņas koordināta ir 1;1, savukārt rūtiņai pa labi no tās koordināta ir 2;1, bet rūtiņai, kas atrodas zem 1;1 rūtiņas - 1;2.
+
+2.) (Šo soli jāatkārto 36 reizes, tā kā ir ieteicams, blakus spēles laukumam, uzrakstīt skaitļus no 1 līdz 36, lai varētu izsekot līdzi spēles gaitai)
+Met metamo kauliņu 3 reizes. Pirmais uzmestais skaitlis ir kolona, un otrais skaitlis - rinda, savukārt 3. skaitlis nosaka, vai šo laukumu vajag aizkrāsot.
+
+Ja tiek uzmests nepāra skaitlis (1, 3 vai 5), laukumu vajag aizkrāsot.
+Ja tiek uzmests pāra skaitlis (2, 4 vai 6), laukumu neaiztiek.
+
+Ja metot metamo kauliņu trāpas koordināta, kurā laukums jau ir aizpildīts un kuru vajag aizpildīt, aizkrāsojumu jāizdzēš.
+
+-----------------------------------------------------------------

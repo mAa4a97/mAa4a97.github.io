@@ -71,6 +71,27 @@ document.addEventListener("DOMContentLoaded", function () {
         location.href="./a-frame_exhibition/index.html", "_self";
     });
 
+    var p5_analog = document.querySelector('.p5_analog');
+    p5_analog.addEventListener('click', function () {
+        //window.scrollTo({ top: 0, behavior: 'smooth' });
+        //window.open("../../../index.html", "_self");
+        location.href="./p5/p5_analog/", "_self";
+    });
+
+    var p5_digital = document.querySelector('.p5_digital');
+    p5_digital.addEventListener('click', function () {
+        //window.scrollTo({ top: 0, behavior: 'smooth' });
+        //window.open("../../../index.html", "_self");
+        location.href="./p5/p5_digital/", "_self";
+    });
+
+    var p5_artwork = document.querySelector('.p5_artwork');
+    p5_artwork.addEventListener('click', function () {
+        //window.scrollTo({ top: 0, behavior: 'smooth' });
+        //window.open("../../../index.html", "_self");
+        location.href="./p5/p5_artwork/", "_self";
+    });
+
 });
 
 // redirects
