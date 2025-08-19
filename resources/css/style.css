@@ -275,6 +275,7 @@ body {
 
 @media only screen and (max-width: 344px) and (max-width: 430px) {
     .gallery {
+        padding-top: 2rem;
         grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); /* Allow smaller columns on very small screens */
     }
 
@@ -298,18 +299,21 @@ body {
 
 @media only screen and (min-width: 431px) and (max-width: 768px) {
     .gallery {
+        padding-top: 2rem;
         grid-template-columns: 1fr; /* Single column layout on smaller screens */
     }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
     .gallery {
+        padding-top: 2rem;
         grid-template-columns: repeat(2, 1fr); /* 2 columns for medium-sized screens */
     }
 }
 
 @media only screen and (min-width: 1025px) {
     .gallery {
+        padding-top: 2rem;
         grid-template-columns: repeat(3, 26rem); /* 3 columns of fixed width (15rem) for large screens */
     }
 }
