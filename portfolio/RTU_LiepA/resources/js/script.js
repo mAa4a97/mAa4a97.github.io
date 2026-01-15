@@ -71,6 +71,13 @@ document.addEventListener("DOMContentLoaded", function () {
         location.href="./a-frame_exhibition/index.html", "_self";
     });
 
+        var aFrameExhibition = document.querySelector('#aFrameExhibition2');
+    aFrameExhibition.addEventListener('click', function () {
+        //window.scrollTo({ top: 0, behavior: 'smooth' });
+        //window.open("../../../index.html", "_self");
+        location.href="./a-frame_360_video/index.html", "_self";
+    });
+
     var p5_analog = document.querySelector('.p5_analog');
     p5_analog.addEventListener('click', function () {
         //window.scrollTo({ top: 0, behavior: 'smooth' });

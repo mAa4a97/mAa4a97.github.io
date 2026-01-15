@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <script src="./simple-navmesh-constraint.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../resources/header/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>A-frame Gallery | mAa4a</title>
+  </head>
+  <body>
+    <a id="go-back" href="../">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" alt="exit" style="position:absolute; z-index: 99; width: 60px; padding: 2em;">
+      <circle cx="40" cy="40" r="40" fill="#D9D9D9"></circle>
+      <rect x="18" y="39.2843" width="40" height="7" rx="3.5" transform="rotate(-45 18 39.2843)" fill="white"></rect>
+      <rect x="18" y="39.2843" width="40" height="7" rx="3.5" transform="rotate(-45 18 39.2843)" fill="white"></rect>
+      <rect x="22.9497" y="35" width="40" height="7" rx="3.5" transform="rotate(45 22.9497 35)" fill="white"></rect>
+      <rect x="22.9497" y="35" width="40" height="7" rx="3.5" transform="rotate(45 22.9497 35)" fill="white"></rect>
+    </svg>
+    <script>
+    document.getElementById("go-back").addEventListener("click", () => {
+    history.back();
+    });
+    </script>
+  </a>
+  <a-scene keyboard-shortcuts="" screenshot="" xr-mode-ui="" device-orientation-permission-ui="">
+        <a-assets>
+          <!-- TEXTURES -->
+            <!--FLOOR-->
+            <img id="floor_diff" src="./assets/textures/floor_texture/white-fine-leather-textured-background.jpg">
+            <img id="floor_arm" src="./assets/textures/floor_texture/worn_planks_arm_1k.jpg">
+            <img id="floor_normal" src="./assets/textures/floor_texture/worn_planks_nor_gl_1k.jpg">
+            <!--Video-->
+            <video id="video360" autoplay="" loop="true" src="./assets/videos/360_video.mp4" crossorigin="anonymous" webkit-playsinline="" playsinline=""></video>
+          <!---->
+        </a-assets>
+        <a-sky material="src: #video360" rotation="0 -130 0"></a-sky>
+        <!-- Camera rig with navmesh constraint and keyboard controls -->
+        <a-camera wasd-controls="acceleration: 20" simple-navmesh-constraint="navmesh: .navmesh; fall: 3; height: 1.65; exclude: .navmesh-hole" look-controls="pointerLockEnabled: true" position="8.9387666427196 1.649999999999999 4.042560213549332" rotation="-52.59752559300961 38.27358071473902 0"></a-camera>
+        <!-- Lighting -->
+        <a-entity light="color: #fff5eb; intensity: 3.93" position="0 10 5"></a-entity>
+        <!-- NAVMESH -->
+        <a-plane class="navmesh" rotation="-90 0 0" width="19.5" height="19.5" color="#999" visible="false"></a-plane>
+        <!--FLOOR TEXTURE-->
+        <a-plane src="#floor_diff" position="0 -65.11 0" rotation="-90 26.76 0" width="20" height="20" scale="6 6 1" material="alphaTest: 1; transparent: true; blending: none; roughness: 0.6"></a-plane>
+        <!-- Glass box-->
+        <!--<a-entity
+        geometry="primitive: box; width: 3; height: 3; depth: 3"
+        material="
+          color: #ffffff;
+          transparent: true;
+          opacity: 0.15;
+          side: back;
+          metalness: 0.1;
+          roughness: 0.05;
+        ">
+        </a-entity>-->
+        <a-entity visible="false"></a-entity></a-scene>
+    <script>
+      AFRAME.registerComponent('auto-aspect', {
+        schema: {
+          src: {type: 'selector'}
+        },
+        init: function () {
+          const imgEl = this.data.src;
+          const el = this.el;
+          if (imgEl && imgEl.getAttribute('src')) {
+            const img = new Image();
+            img.src = imgEl.getAttribute('src');
+            img.onload = function () {
+              const aspect = img.width / img.height;
+              
+              // Maximum allowed dimensions
+              const maxWidth = 2;
+              const maxHeight = 1.5;
+    
+              let width = maxWidth;
+              let height = width / aspect;
+    
+              if (height > maxHeight) {
+                height = maxHeight;
+                width = height * aspect;
+              }
+    
+              el.setAttribute('width', width);
+              el.setAttribute('height', height);
+            };
+          }
+        }
+      });
+      AFRAME.registerShader('blur', {
+        schema: {
+          src: { type: 'map' },
+          blurAmount: { type: 'number', default: 1.5 }
+        },
+
+        vertexShader: `
+          varying vec2 vUv;
+          void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `,
+
+        fragmentShader: `
+          uniform sampler2D src;
+          uniform float blurAmount;
+          varying vec2 vUv;
+
+          void main() {
+            vec4 color = vec4(0.0);
+            float offset = blurAmount / 512.0;
+
+            color += texture2D(src, vUv + vec2(-offset, 0.0));
+            color += texture2D(src, vUv);
+            color += texture2D(src, vUv + vec2(offset, 0.0));
+
+            gl_FragColor = color / 3.0;
+          }
+        `
+      });
+    </script>
+  </body>
+</html>
