@@ -338,6 +338,7 @@ body {
 }
 
 .image__overlay {
+    border-radius: 0.7rem;
     position: absolute;
     top: 0;
     left: 0;
