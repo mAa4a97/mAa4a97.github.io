@@ -190,7 +190,7 @@ body {
 
 .event-timeline-section {
     margin-top: 50px; /* Adjust the margin as needed */
-    margin-bottom: 150px;
+    margin-bottom: 200px;
 }
 
 .event-timeline-section h1 {
@@ -204,6 +204,7 @@ body {
 }
 
 .event-timeline {
+    top: 3vw;
     position: relative;
     width: 80%;
     margin: auto;
